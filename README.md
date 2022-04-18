@@ -1,11 +1,10 @@
-this repo is fork from [movienet/movienet-tools](https://github.com/movienet/movienet-tools)
+this repo is fork from [movienet/movienet-tools](https://github.com/movienet/movienet-tools).
 
 this repo aims to provide some data processing tools for movienet.
 
 # download trailers
 ## download one video trailer
 
-```bash
 There are many trailers on the `trailer.urls.unique30K.v1.json` which is downloaded from [movienet](http://movienet.site/#).
 
 To download those trailers, install [youtube-dl](https://youtube-dl.org/) and install [aria2c](https://github.com/aria2/aria2).
