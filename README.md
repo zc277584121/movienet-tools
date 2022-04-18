@@ -1,3 +1,39 @@
+this repo is fork from [movienet/movienet-tools](https://github.com/movienet/movienet-tools)
+
+this repo aims to provide some data processing tools for movienet.
+
+# download trailers
+## download one video trailer
+
+```bash
+There are many trailers on the `trailer.urls.unique30K.v1.json` which is downloaded from [movienet](http://movienet.site/#).
+
+To download those trailers, install [youtube-dl](https://youtube-dl.org/) and install [aria2c](https://github.com/aria2/aria2).
+
+```bash
+pip install youtube-dl
+brew install aria2
+
+youtube-dl https://www.youtube.com/watch?v=[youtube_id] --external-downloader aria2c --external-downloader-args "-x 16  -k 1M"
+```
+`youtube_id` is in the `trailer.urls.unique30K.v1.json` file.
+
+--external-downloader aria2c //means调用外部下载工具  
+--external-downloader-args //means外部下载工具指定参数  
+-x 16 //means启用aria2 16个线程，最多就支持16线程  
+-K 1M //means指定块的大小  
+
+
+
+
+------
+The following is the original README.md file from movienet/movienet-tools
+
+
+-------
+
+
+
 **Updates**
 
 [MovieNet Official Website](http://movienet.site/) is online now!
