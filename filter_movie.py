@@ -186,11 +186,14 @@ def get_min_intersection_list(movienet_path):
     print_intersect_union(all_mv_list_movie_id_list, trailer_imdb_id_list)
     print('list1 = all_mv_list_movie_id_list, list2 = trailer_imdb_id_list')
 
+    print_intersect_union(all_mv_list_movie_id_list, all_script_movie_id_list)
+    print('list1 = all_mv_list_movie_id_list, list2 = all_script_movie_id_list')
+
     # ------------------------------
     print_line()
     print_line()
-    min_intersection = intersection(intersection(all_mv_list_movie_id_list, all_subtitle_movie_id_list),
-                                    trailer_imdb_id_list)
+    min_intersection = intersection(intersection(intersection(all_mv_list_movie_id_list, all_subtitle_movie_id_list),
+                                                 trailer_imdb_id_list), all_script_movie_id_list)
     print('len(min_intersection) =', len(min_intersection))
     return min_intersection
 

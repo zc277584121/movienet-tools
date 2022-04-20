@@ -119,12 +119,18 @@ len of list1 =  1100
 len of list2 =  32753
 list1 = all_mv_list_movie_id_list, list2 = trailer_imdb_id_list
 ----------------------------------------------------------------------------------------------------
+len of intersection = 479
+len of union = 1100
+['tt0113101', 'tt0964517', 'tt0118971', 'tt2140373', 'tt0120255']
+len of list1 =  1100
+len of list2 =  479
+list1 = all_mv_list_movie_id_list, list2 = all_script_movie_id_list
 ----------------------------------------------------------------------------------------------------
-len(min_intersection) = 800
-['tt0387877', 'tt1001508', 'tt1748122', 'tt0120586', 'tt0083866', 'tt2446980', 'tt0454921', 'tt0369339', 'tt0120655', 'tt0091203']
+----------------------------------------------------------------------------------------------------
+len(min_intersection) = 434
 
 ```
-We can observe that the min intersection trailer_imdb_id_list contains 800 trailers.
+We can observe that the min intersection trailer_imdb_id_list contains 434 trailers.
 
 So we can download the trailers using youtube-dl.
 
