@@ -98,8 +98,8 @@ def get_min_intersection_list(movienet_path):
 
     # Meta
     meta_path = os.path.join(movienet_path, 'meta')
-    all_subtitle_movie_id_list = get_mv_ids_from_folder(meta_path)
-    print('len(all_subtitle_movie_id_list) =', len(all_subtitle_movie_id_list))
+    all_meta_movie_id_list = get_mv_ids_from_folder(meta_path)
+    print('len(all_meta_movie_id_list) =', len(all_meta_movie_id_list))
     print_line()
 
     # Movie per-shot keyframes
@@ -176,6 +176,9 @@ def get_min_intersection_list(movienet_path):
 
     print_intersect_union(all_mv_list_movie_id_list, all_annotation_movie_id_list)
     print('list1 = all_mv_list_movie_id_list, list2 = all_annotation_movie_id_list')
+
+    print_intersect_union(all_mv_list_movie_id_list, all_meta_movie_id_list)
+    print('list1 = all_mv_list_movie_id_list, list2 = all_meta_movie_id_list')
 
     print_intersect_union(all_mv_list_movie_id_list, all_subtitle_movie_id_list)
     print('list1 = all_mv_list_movie_id_list, list2 = all_subtitle_movie_id_list')
