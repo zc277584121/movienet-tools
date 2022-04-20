@@ -1,6 +1,6 @@
-this repo is fork from [movienet/movienet-tools](https://github.com/movienet/movienet-tools).
+This repo is forked from [movienet/movienet-tools](https://github.com/movienet/movienet-tools).
 
-this repo aims to provide some data processing tools for movienet.
+This repo aims to provide some data processing tools for movienet.
 
 # download trailers
 ## download one video trailer
@@ -22,6 +22,115 @@ youtube-dl https://www.youtube.com/watch?v=[youtube_id] --external-downloader ar
 -x 16 //means启用aria2 16个线程，最多就支持16线程  
 -K 1M //means指定块的大小  
 
+
+## download trailers with complete information
+
+There are many attributes in a trailer, which can be download from [movienet](http://movienet.site/#).
+For example:
+- Annotation (Last updated at 02/08/2020, size: 53MB, after unzip: 881MB)
+- Meta (Last updated at 06/08/2020, size: 537MB, after unzip: 2.3GB)
+- Movie per-shot keyframes (240P) (Last updated at 29/08/2020, size: 161GB, after unzip: 161GB)
+- Movie List (1100) (Last updated at 29/08/2020, size: 10KB) 
+- Movie1K train/val/test split (Last updated at 29/08/2020, size: 30KB)
+- Poster4M image meta information (Last updated at 02/09/2020, size: 1.3GB, one could download images from the urls provided in the json file.)
+- Subtitles (815 files) from movie1K (Last updated at 05/09/2020, size: 29.9MB, after unzip: 84.4MB)
+- Script (479 files) from movie1K (Last updated at 05/09/2020, size: 27.9MB, after unzip: 101.8MB)
+- Shot detection result for movie1K (Last updated at 05/09/2020, size: 20.9MB, after unzip: 50.7MB)
+- Audio feature for movie1K (Last updated at 06/09/2020, size: 89.7GB)
+- Place feature for movie1K (Last updated at 06/09/2020, size: 11GB)
+- Video info for movie1K movies, including fps, frame_count, etc (Last updated at 09/09/2020, size: 118KB)
+- Trailer 30K URLs (Last updated at 17/10/2020, size: 2.155MB)  
+
+To filter the trailers which contain all the attributes information, we need to download all the files from movienet first.
+
+To analyze all of the files downloaded from movienet, we can use the following command:
+ 
+```
+python filter_movie.py
+
+
+
+len(all_annotation_movie_id_list) = 8918
+----------------------------------------------------------------------------------------------------
+len(all_subtitle_movie_id_list) = 375359
+----------------------------------------------------------------------------------------------------
+len(all_mv_list_movie_id_list) = 1100
+----------------------------------------------------------------------------------------------------
+all_mv_split_movie_id_dict.keys() = dict_keys(['train', 'val', 'test', 'full'])
+len of train 660
+len of val 220
+len of test 220
+len of full 1100
+----------------------------------------------------------------------------------------------------
+len(post4m_id_list) = 2774499
+len(post4m_id_set) = 300435
+----------------------------------------------------------------------------------------------------
+len(all_subtitle_movie_id_list) = 815
+----------------------------------------------------------------------------------------------------
+len(all_script_movie_id_list) = 479
+----------------------------------------------------------------------------------------------------
+len(all_shot_movie_id_list) = 1100
+----------------------------------------------------------------------------------------------------
+len(video_info_mv_id_list) = 1100
+----------------------------------------------------------------------------------------------------
+len(trailer_imdb_id_list) = 32753
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+len of intersection = 1100
+len of union = 1100
+['tt0454876', 'tt0976051', 'tt0116695', 'tt1072748', 'tt0108656']
+len of list1 =  1100
+len of list2 =  1100
+list1 = all_mv_list_movie_id_list, list2 = all_shot_movie_id_list
+----------------------------------------------------------------------------------------------------
+len of intersection = 1100
+len of union = 1100
+['tt0032138', 'tt0035423', 'tt0038650', 'tt0045537', 'tt0047396']
+len of list1 =  1100
+len of list2 =  1100
+list1 = all_mv_list_movie_id_list, list2 = video_info_mv_id_list
+----------------------------------------------------------------------------------------------------
+len of intersection = 1100
+len of union = 8918
+['tt2167924', 'tt4557064', 'tt2188885', 'tt3196830', 'tt2075378']
+len of list1 =  1100
+len of list2 =  8918
+list1 = all_mv_list_movie_id_list, list2 = all_annotation_movie_id_list
+----------------------------------------------------------------------------------------------------
+len of intersection = 815
+len of union = 1100
+['tt1144884', 'tt0369339', 'tt0477348', 'tt1193138', 'tt1371111']
+len of list1 =  1100
+len of list2 =  815
+list1 = all_mv_list_movie_id_list, list2 = all_subtitle_movie_id_list
+----------------------------------------------------------------------------------------------------
+len of intersection = 1077
+len of union = 300458
+['tt4135658', 'tt0323939', 'tt0572209', 'tt8893970', 'tt0562612']
+len of list1 =  1100
+len of list2 =  300435
+list1 = all_mv_list_movie_id_list, list2 = post4m_id_set_list
+----------------------------------------------------------------------------------------------------
+len of intersection = 993
+len of union = 32860
+['tt2308606', 'tt2530672', 'tt4881642', 'tt0465203', 'tt2347174']
+len of list1 =  1100
+len of list2 =  32753
+list1 = all_mv_list_movie_id_list, list2 = trailer_imdb_id_list
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+len(min_intersection) = 800
+['tt0387877', 'tt1001508', 'tt1748122', 'tt0120586', 'tt0083866', 'tt2446980', 'tt0454921', 'tt0369339', 'tt0120655', 'tt0091203']
+
+```
+We can observe that the min intersection trailer_imdb_id_list contains 800 trailers.
+
+So we can download the trailers using youtube-dl.
+
+```
+python download_movie.py
+```
 
 
 
