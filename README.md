@@ -49,10 +49,9 @@ To analyze all of the files downloaded from movienet, we can use the following c
 python filter_movie.py
 
 
-
 len(all_annotation_movie_id_list) = 8918
 ----------------------------------------------------------------------------------------------------
-len(all_subtitle_movie_id_list) = 375359
+len(all_meta_movie_id_list) = 375359
 ----------------------------------------------------------------------------------------------------
 len(all_mv_list_movie_id_list) = 1100
 ----------------------------------------------------------------------------------------------------
@@ -98,6 +97,13 @@ len of list1 =  1100
 len of list2 =  8918
 list1 = all_mv_list_movie_id_list, list2 = all_annotation_movie_id_list
 ----------------------------------------------------------------------------------------------------
+len of intersection = 1100
+len of union = 375359
+['tt7204834', 'tt1196338', 'tt0265244', 'tt5889280', 'tt7363368']
+len of list1 =  1100
+len of list2 =  375359
+list1 = all_mv_list_movie_id_list, list2 = all_meta_movie_id_list
+----------------------------------------------------------------------------------------------------
 len of intersection = 815
 len of union = 1100
 ['tt1144884', 'tt0369339', 'tt0477348', 'tt1193138', 'tt1371111']
@@ -107,7 +113,7 @@ list1 = all_mv_list_movie_id_list, list2 = all_subtitle_movie_id_list
 ----------------------------------------------------------------------------------------------------
 len of intersection = 1077
 len of union = 300458
-['tt4135658', 'tt0323939', 'tt0572209', 'tt8893970', 'tt0562612']
+['tt7577374', 'tt0893616', 'tt3877166', 'tt5222740', 'tt0709065']
 len of list1 =  1100
 len of list2 =  300435
 list1 = all_mv_list_movie_id_list, list2 = post4m_id_set_list
