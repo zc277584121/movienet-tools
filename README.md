@@ -138,6 +138,10 @@ len(min_intersection) = 434
 ```
 We can observe that the min intersection trailer_imdb_id_list contains 434 trailers.
 
+Pay attention, we do not count the `movie1K.keyframes.240p.v1`, `Audio feature ` and `Place feature` file because they are too big. If you download `movie1K.keyframes.240p.v1` and unzip it, you can find the count of files is 1100, which is the same as all_mv_list_movie_id_list.  
+
+```
+
 So we can download the trailers using youtube-dl.
 
 ```
